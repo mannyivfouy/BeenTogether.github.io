@@ -1,0 +1,48 @@
+/* Heart animation styles */
+.heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;    
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+}
+
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 32px;
+    background: #ff1493;
+    border-radius: 20px 20px 0 0;
+    transition: all 0.3s ease;
+}
+
+.heart:before {
+    left: 20px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes bounce {
+    0% { top: -50px; transform: translateX(-50%) scale(1); }
+    20% { top: calc(100vh - 40px); transform: translateX(-50%) scale(1.2, 0.8); }
+    25% { transform: translateX(-50%) scale(0.8, 1.2); }
+    30% { top: calc(100vh - 120px); transform: translateX(-50%) scale(1); }
+    50% { top: calc(100vh - 40px); transform: translateX(-50%) scale(1.1, 0.9); }
+    55% { transform: translateX(-50%) scale(0.9, 1.1); }
+    60% { top: calc(100vh - 80px); transform: translateX(-50%) scale(1); }
+    75% { top: calc(100vh - 40px); transform: translateX(-50%) scale(1.05, 0.95); }
+    80% { transform: translateX(-50%) scale(0.95, 1.05); }
+    85% { top: calc(100vh - 60px); transform: translateX(-50%) scale(1); }
+    100% { top: calc(100vh - 40px); transform: translateX(-50%) scale(1); }
+}
+
